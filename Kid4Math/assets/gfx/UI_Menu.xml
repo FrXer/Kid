@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="UI_Menu.png" type="bitmap" width="480" height="960" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:f81bf6dd29170cdabf56d20793cd5622$ -->
+    <textureregion id="0" src="UI_Gambling.png" x="0" y="0" width="480" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="480" srcheight="160"/>
+    <textureregion id="1" src="UI_Music0.png" x="320" y="640" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="2" src="UI_Music1.png" x="160" y="640" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="3" src="UI_Music2.png" x="0" y="800" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="4" src="UI_Music3.png" x="0" y="640" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="5" src="UI_MyPets.png" x="0" y="480" width="480" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="480" srcheight="160"/>
+    <textureregion id="6" src="UI_NewGame.png" x="0" y="320" width="480" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="480" srcheight="160"/>
+    <textureregion id="7" src="UI_PetsCastle.png" x="0" y="160" width="480" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="480" srcheight="160"/>
+</texture>

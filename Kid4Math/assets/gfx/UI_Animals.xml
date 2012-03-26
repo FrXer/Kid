@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="UI_Animals.png" type="bitmap" width="960" height="800" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:c5b56edd054430a2e87996002757011c$ -->
+    <textureregion id="0" src="UI.Animals_bear.png" x="0" y="0" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="1" src="UI.Animals_bird3d.png" x="160" y="0" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="2" src="UI.Animals_butterfly.png" x="320" y="0" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="3" src="UI.Animals_buttfly_blue.png" x="480" y="0" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="4" src="UI.Animals_buttfly_orange.png" x="640" y="0" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="5" src="UI.Animals_cat.png" x="800" y="0" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="6" src="UI.Animals_cow3d.png" x="0" y="160" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="7" src="UI.Animals_dog3d.png" x="160" y="160" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="8" src="UI.Animals_dog3d1.png" x="320" y="160" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="9" src="UI.Animals_doggy3d.png" x="480" y="160" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="10" src="UI.Animals_duck.png" x="640" y="160" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="11" src="UI.Animals_elephant.png" x="800" y="160" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="12" src="UI.Animals_fish.png" x="0" y="320" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="13" src="UI.Animals_fishgirl.png" x="160" y="320" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="14" src="UI.Animals_frog.png" x="320" y="320" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="15" src="UI.Animals_goat.png" x="480" y="320" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="16" src="UI.Animals_hen.png" x="640" y="320" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="17" src="UI.Animals_hippo.png" x="800" y="320" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="18" src="UI.Animals_hourse.png" x="0" y="480" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="19" src="UI.Animals_monkey.png" x="160" y="480" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="20" src="UI.Animals_mouse.png" x="320" y="480" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="21" src="UI.Animals_mouse3d.png" x="480" y="480" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="22" src="UI.Animals_panda.png" x="640" y="480" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="23" src="UI.Animals_pelican.png" x="800" y="480" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="24" src="UI.Animals_rabbit3d.png" x="0" y="640" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="25" src="UI.Animals_rooster.png" x="160" y="640" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="26" src="UI.Animals_snake.png" x="320" y="640" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="27" src="UI.Animals_starfish.png" x="480" y="640" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="28" src="UI.Animals_tiger.png" x="640" y="640" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+    <textureregion id="29" src="UI.Animals_tiger3d.png" x="800" y="640" width="160" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="160" srcheight="160"/>
+</texture>
