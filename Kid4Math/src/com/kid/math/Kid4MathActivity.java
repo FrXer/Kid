@@ -14,6 +14,7 @@ import org.andengine.entity.util.FPSLogger;
 import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.font.FontFactory;
+import org.andengine.opengl.texture.ITexture;
 import org.andengine.opengl.texture.TextureOptions;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
@@ -39,8 +40,19 @@ public class Kid4MathActivity extends SimpleBaseGameActivity {
 	private BitmapTextureAtlas mBitmapTextureAtlas;
 	private ITextureRegion mFaceTextureRegion;
 	private Font mFontQuestion;
-	private Text text;
+
+	private int currentQuestion = 0;
+	int questionCount = 5;
+	private Question[] questions = new Question[questionCount];
+	private Text[] text = new Text[questionCount];
+	private Text text3 = null;
+
+	private Scene mScene;
+
 	Random r = new Random(20);
+	// Test 3
+	private static final int FONT_SIZE = 48;
+	private Font mDroidFont;
 
 	// ===========================================================
 	// Constructors
@@ -71,58 +83,123 @@ public class Kid4MathActivity extends SimpleBaseGameActivity {
 		this.mFaceTextureRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(this.mBitmapTextureAtlas, this, "face_box.png", 0, 0);
 		this.mBitmapTextureAtlas.load();
 
-		// debug
 		// Load the font
+		// FontFactory.setAssetBasePath("font/");
+		// this.mFontQuestion = FontFactory.createFromAsset(this.getFontManager(), this.getTextureManager(), 512, 512, TextureOptions.BILINEAR, this.getAssets(), "EraserDust.ttf", 30, true, Color.WHITE);
+		// // this.mFontQuestion = FontFactory.createFromAsset(this.getFontManager(), droidFontTexture, 512, 512, TextureOptions.BILINEAR, this.getAssets(), "EraserDust.ttf", 30, true, Color.WHITE);
+		// this.mFontQuestion.load();
+
+		// test3
+		final ITexture droidFontTexture = new BitmapTextureAtlas(this.getTextureManager(), 256, 256, TextureOptions.BILINEAR);
 		FontFactory.setAssetBasePath("font/");
-		this.mFontQuestion = FontFactory.createFromAsset(this.getFontManager(), this.getTextureManager(), 512, 512, TextureOptions.BILINEAR, this.getAssets(), "EraserDust.ttf", 30, true, Color.WHITE);
-		this.mFontQuestion.load();
+		this.mDroidFont = FontFactory.createFromAsset(this.getFontManager(), droidFontTexture, this.getAssets(), "Droid.ttf", FONT_SIZE, true, Color.BLACK);
+		this.mDroidFont.load();
+
 	}
 
 	@Override
 	public Scene onCreateScene() {
 		this.mEngine.registerUpdateHandler(new FPSLogger());
 
-		final Scene scene = new Scene();
-		scene.setBackground(new Background(0.09804f, 0.6274f, 0.8784f));
+		mScene = new Scene();
+		mScene.setBackground(new Background(0.09804f, 0.6274f, 0.8784f));
 
-		// debug
-		text = new Text(0, 0, mFontQuestion, "Test", 50, this.getVertexBufferObjectManager());
-		scene.attachChild(text);
-		//
 		final float centerX = (CAMERA_WIDTH - this.mFaceTextureRegion.getWidth()) / 2;
 		final float centerY = (CAMERA_HEIGHT - this.mFaceTextureRegion.getHeight()) / 2;
 		final Sprite face = new Sprite(centerX, centerY, this.mFaceTextureRegion, this.getVertexBufferObjectManager()) {
 			@Override
 			public boolean onAreaTouched(final TouchEvent pSceneTouchEvent, final float pTouchAreaLocalX, final float pTouchAreaLocalY) {
-				this.setPosition(pSceneTouchEvent.getX() - this.getWidth() / 2, pSceneTouchEvent.getY() - this.getHeight() / 2);
-
-				showMessage();
-				// Kid4MathActivity.this.text.setText(r1 + "+" + r2 + " = " + r1 * r2);
+				if (pSceneTouchEvent.isActionDown()) {
+					currentQuestion++;
+					Log.d("Log", "currentQuestion:" + currentQuestion);
+					showQuestions(10.0f, 10.0f);
+				}
 				return true;
 			}
 
 		};
 		face.setScale(4);
-		scene.attachChild(face);
-		scene.registerTouchArea(face);
-		// scene.setTouchAreaBindingOnActionDownEnabled(true);
+		mScene.attachChild(face);
+		mScene.registerTouchArea(face);
 
-		return scene;
+		return mScene;
 	}
 
 	// ===========================================================
 	// Methods
 	// ===========================================================
-	private void showMessage() {
-		// debug
 
-		int r1 = r.nextInt(20);
-		int r2 = r.nextInt(20);
-		// bug ?
-		Log.d("Log", r1 + "+" + r2 + " = " + r1 * r2);
-		text.setText(r1 + "+" + r2 + " = " + r1 * r2);
+	private void showQuestions(final float x, final float y) {
+
+		// test 1 - text arrays do not work
+		for (int i = 0; i < questionCount; i++) {
+			// works
+			// CharSequence expression1 = "test" + currentQuestion * 1000 + i;
+
+			// do not works
+			CharSequence expression1 = generateRandomExpression(20);
+
+			// test 2
+			Log.d("Log", "expression1: " + expression1);
+			if (text[i] == null) {
+				Log.d("Log", "create new questions " + i);
+				text[i] = new Text(x, y + i * 40, mDroidFont, "initial valus.....................", this.getVertexBufferObjectManager());
+				mScene.attachChild(text[i]);
+			} else {
+				Log.d("Log", "change the existing question text to: " + expression1);
+				text[i].setText(expression1);
+			}
+		}
+
+	}
+
+	public static CharSequence generateRandomExpression(int range) {
+		String expression = "";
+		int result = 0;
+		Random random = new Random();
+		int randomInt1 = random.nextInt(range) + 1;
+		int randomInt2 = random.nextInt(range) + 1;
+
+		// Let Int2 < Int1
+		while (randomInt2 >= randomInt1) {
+			randomInt2 = random.nextInt(range) + 1;
+		}
+		char op = getRandomOperation();
+
+		// Generate expression
+		if (op != '÷') {
+			expression = String.valueOf(randomInt1) + op + String.valueOf(randomInt2);
+			result = Util.caculate(expression);
+		} else {
+			expression = String.valueOf(randomInt1 * randomInt2) + op + String.valueOf(randomInt2);
+			result = randomInt1;
+		}
+		return expression + " = " + result;
+	}
+
+	private static char getRandomOperation() {
+		Random random = new Random();
+		int randomOperation = (random.nextInt() + 1) % 4;
+		char op = '+';
+		// Get operation
+		switch (randomOperation) {
+		case 0:
+			op = '+';
+			break;
+		case 1:
+			op = '-';
+			break;
+		case 2:
+			op = '×';
+			break;
+		case 3:
+			op = '÷';
+			break;
+		}
+		return op;
 	}
 	// ===========================================================
 	// Inner and Anonymous Classes
 	// ===========================================================
+
 }
