@@ -133,17 +133,22 @@ public class Kid4MathActivity extends SimpleBaseGameActivity {
 
 		// test 1 - text arrays do not work
 		for (int i = 0; i < questionCount; i++) {
-			// works
+			// This works
 			// CharSequence expression1 = "test" + currentQuestion * 1000 + i;
 
-			// do not works
-			CharSequence expression1 = generateRandomExpression(20);
+			// This random strings do not works?
+			Random random = new Random();
+			int randomInt1 = random.nextInt(20) + 1;
+			int randomInt2 = random.nextInt(20) + 1;
+
+//			CharSequence expression1 = String.valueOf(randomInt1 * randomInt2) + " + " + String.valueOf(randomInt2);
+			 CharSequence expression1 = generateRandomExpression(20);
 
 			// test 2
 			Log.d("Log", "expression1: " + expression1);
 			if (text[i] == null) {
 				Log.d("Log", "create new questions " + i);
-				text[i] = new Text(x, y + i * 40, mDroidFont, "initial valus.....................", this.getVertexBufferObjectManager());
+				text[i] = new Text(x, y + i * 40, this.mDroidFont, "initial valus.....................", this.getVertexBufferObjectManager());
 				mScene.attachChild(text[i]);
 			} else {
 				Log.d("Log", "change the existing question text to: " + expression1);
@@ -159,22 +164,24 @@ public class Kid4MathActivity extends SimpleBaseGameActivity {
 		Random random = new Random();
 		int randomInt1 = random.nextInt(range) + 1;
 		int randomInt2 = random.nextInt(range) + 1;
-
-		// Let Int2 < Int1
-		while (randomInt2 >= randomInt1) {
-			randomInt2 = random.nextInt(range) + 1;
-		}
+//
+//		// Let Int2 < Int1
+//		while (randomInt2 >= randomInt1) {
+//			randomInt2 = random.nextInt(range) + 1;
+//		}
 		char op = getRandomOperation();
-
-		// Generate expression
-		if (op != '÷') {
+//
+//		// Generate expression
+//		if (op != '÷') {
 			expression = String.valueOf(randomInt1) + op + String.valueOf(randomInt2);
 			result = Util.caculate(expression);
-		} else {
-			expression = String.valueOf(randomInt1 * randomInt2) + op + String.valueOf(randomInt2);
-			result = randomInt1;
-		}
-		return expression + " = " + result;
+//		} else {
+//			expression = String.valueOf(randomInt1 * randomInt2) + op + String.valueOf(randomInt2);
+//			result = randomInt1;
+//		}
+		return expression + " = " + String.valueOf(result);
+//		return String.valueOf(randomInt1 * randomInt2) + " + " + String.valueOf(randomInt2);
+//			return expression;
 	}
 
 	private static char getRandomOperation() {
