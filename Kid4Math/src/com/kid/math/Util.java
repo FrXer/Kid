@@ -15,9 +15,8 @@ public class Util {
 	 * @return 计算结果
 	 */
 	public static int caculate(String expression) {
-		// TODO 1.判断string当中有没有非法字符
 
-		String tempString;// 用来临时存放读取的字符
+		String tempString;
 		// 2.循环开始解析字符串，当字符串解析完，且符号栈为空时，则计算完成
 		StringBuffer tempNum = new StringBuffer();// 用来临时存放数字字符串(当为多位数时)
 		StringBuffer expressionString = new StringBuffer().append(expression).append('#');// 用来保存，提高效率

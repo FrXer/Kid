@@ -134,12 +134,20 @@ public class Kid4MathActivity extends SimpleBaseGameActivity {
 		// test 1 - text arrays do not work
 		for (int i = 0; i < questionCount; i++) {
 			// works
-			// CharSequence expression1 = "test" + currentQuestion * 1000 + i;
+			// CharSequence expression1 = "test: 123 + 456 =" + currentQuestion * 1000 + i;
+
+			// Random random = new Random();
+			// int randomInt1 = random.nextInt(20) + 1;
+			// int randomInt2 = random.nextInt(20) + 1;
+			// CharSequence expression1 = String.valueOf(randomInt1 * randomInt2) + "+" + String.valueOf(randomInt2);
+
+			// works
+			// CharSequence expression1 = testStr(10);
 
 			// do not works
 			CharSequence expression1 = generateRandomExpression(20);
 
-			// test 2
+			// test
 			Log.d("Log", "expression1: " + expression1);
 			if (text[i] == null) {
 				Log.d("Log", "create new questions " + i);
@@ -153,51 +161,51 @@ public class Kid4MathActivity extends SimpleBaseGameActivity {
 
 	}
 
-	public static CharSequence generateRandomExpression(int range) {
+	private static CharSequence testStr(int i) {
+		return String.valueOf(i);
+	}
+
+	public CharSequence generateRandomExpression(int range) {
 		String expression = "";
 		int result = 0;
 		Random random = new Random();
 		int randomInt1 = random.nextInt(range) + 1;
 		int randomInt2 = random.nextInt(range) + 1;
+		// works
+		// return String.valueOf(randomInt1 * randomInt2) + "+" + String.valueOf(randomInt2);
+
+		// works
+		// Stack<Integer> operatorStack = new Stack<Integer>();
+		// operatorStack.push(randomInt1 + randomInt2);
+		// return String.valueOf(randomInt1) + "+" + String.valueOf(randomInt2) + " = " + String.valueOf(operatorStack.pop()) + ":" + getRandomOperation();
+
+		// works
+		// return String.valueOf(randomInt1) + "+" + String.valueOf(randomInt2) + "= " + String.valueOf(randomInt1 + randomInt2);
 
 		// Let Int2 < Int1
 		while (randomInt2 >= randomInt1) {
+			Log.d("Log", "randomInt2: " + randomInt2 + "randomInt1: " + randomInt1);
 			randomInt2 = random.nextInt(range) + 1;
+			randomInt1 = random.nextInt(range) + 1;
 		}
-		char op = getRandomOperation();
+		//
+		// // Generate expression
+		// expression = String.valueOf(randomInt1) + "+" + String.valueOf(randomInt2);
+		// // bug here
+		// // result = caculate(expression);
+		// // works
+		// result = randomInt1 + randomInt2;
+		//
+		// Log.d("Log", "generateRandomExpression: " + expression + " = " + String.valueOf(result));
+		//
+		// // bug?
+		// // return expression + " = " + String.valueOf(result);
+		//
+		// // bug?
+		return String.valueOf(randomInt1) + "+" + String.valueOf(randomInt2) + "= " + String.valueOf(randomInt1 + randomInt2);
 
-		// Generate expression
-		if (op != '÷') {
-			expression = String.valueOf(randomInt1) + op + String.valueOf(randomInt2);
-			result = Util.caculate(expression);
-		} else {
-			expression = String.valueOf(randomInt1 * randomInt2) + op + String.valueOf(randomInt2);
-			result = randomInt1;
-		}
-		return expression + " = " + result;
 	}
 
-	private static char getRandomOperation() {
-		Random random = new Random();
-		int randomOperation = (random.nextInt() + 1) % 4;
-		char op = '+';
-		// Get operation
-		switch (randomOperation) {
-		case 0:
-			op = '+';
-			break;
-		case 1:
-			op = '-';
-			break;
-		case 2:
-			op = '×';
-			break;
-		case 3:
-			op = '÷';
-			break;
-		}
-		return op;
-	}
 	// ===========================================================
 	// Inner and Anonymous Classes
 	// ===========================================================
